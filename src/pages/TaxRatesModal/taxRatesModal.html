@@ -1,0 +1,50 @@
+<div *ngIf="TaxRatesForm && TaxRatesForm.controls" [formGroup]="TaxRatesForm" class="main">
+  <div class="itemsTable">
+    <div class="itemTableHead">
+      <div class="itemTableButton"></div>
+      <div class="itemTableTaxRateHead">{{ 'Rate' | translate }}</div>
+      <div class="itemTableTaxNameHead">{{ 'Tax Name' | translate }}</div>
+      <div class="itemTableTaxIdHead">{{ 'Tax Number/Id (Optional)' | translate }}</div>
+      <div class="itemTableButton"></div>
+    </div>
+    <div formArrayName="taxRates" class="dragList">
+      <div *ngFor="let tax of TaxRatesForm.get('taxRates').controls; let position=index">
+        <div [formGroupName]="position" class="itemTableRow">
+          <div class="itemTableButton">
+            <mat-checkbox [formControlName]="'isSelected'" class="itemTableCheckbox"></mat-checkbox>
+          </div>
+          <div class="itemTableTaxRate">
+            <div class="taxRateInputDiv">
+              <input type="number" placeholder="0" [formControlName]="'TaxSlabValue'" class="inputData taxRateInput" />
+            </div>
+            <div class="taxRatePercent">%</div>
+          </div>
+          <div class="itemTableTaxName">
+            <input type="text" placeholder="Enter a Tax Name" [formControlName]="'TaxSlabName'" class="inputData taxNameInput" />
+          </div>
+          <div class="itemTableTaxId">
+            <div class="itemTableTaxIdInput">
+              <input type="text" placeholder="Enter a Tax Number" [formControlName]="'TaxSlabID'" class="inputData" />
+            </div>
+            <button type="button" mat-icon-button class="itemTableButton" *ngIf="!tax.controls.isApplied.value"
+              (click)="removeTaxRate(position)">
+              <mat-icon aria-label="delete" class="deleteButton">delete</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="AddTaxRateButtonRow" (click)="addTaxRates()">
+      <mat-icon aria-label="add" class="AddTaxRateButton">add</mat-icon>
+      <span class="addTaxRateButtonText">{{ 'Add Tax Slab' | translate}}</span>
+    </div>
+  </div>
+  <div class="taxApplyCheckBox">
+    <mat-checkbox [formControlName]="'applyTaxToAllItems'" class="itemTableCheckbox">Apply selected taxes to all invoice items</mat-checkbox>
+  </div>
+  <div class="footerRow">
+    <div class="footerEmptyCol"></div>
+    <button mat-button class="footerButtonCancel">{{ 'Cancel' | translate}}</button>
+    <button mat-raised-button class="footerButton" (click)="applyTaxRates()">{{ 'Apply Taxes' | translate}}</button>
+  </div>
+</div>

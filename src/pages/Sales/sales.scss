@@ -1,0 +1,56 @@
+.example-small-box,
+.example-large-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 16px;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.example-small-box {
+  height: 100px;
+  width: 100px;
+}
+
+.example-large-box {
+  height: 300px;
+  width: 300px;
+}
+
+.headRow {
+  display: flex;
+  margin-top: 25px;
+}
+
+.titleCol {
+  flex-grow: 75;
+  text-align: left;
+  font-size: 18px;
+  margin-left: 30px;
+  margin-top: 15px;
+}
+
+.dropDownCol {
+  flex-grow: 1;
+  text-align: right;
+  font-size: 18px;
+  margin-right: 30px;
+  background: #183185;
+  padding: 12px;
+  border-radius: 4px;
+  color: #f3f3f3;
+  border: none;
+}
+
+select {
+  text-align-last: right;
+}
+
+option {
+  direction: rtl;
+}
+
+.mat-form-field-underline {
+  background: none;
+}

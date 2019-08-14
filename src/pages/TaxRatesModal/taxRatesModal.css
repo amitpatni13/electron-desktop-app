@@ -1,0 +1,191 @@
+.main {
+  margin: 15px;
+}
+
+.itemsTable {
+  width: 100%;
+}
+
+.inputData {
+  min-width: 30px !important;
+  max-width: 190px !important;
+  padding: 2px;
+  border: none;
+  background: none;
+}
+
+.itemTableHead,
+.itemTableRow {
+  display: flex;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.itemTableTaxRateHead,
+.itemTableTaxNameHead,
+.itemTableTaxIdHead {
+  font-size: 14px;
+}
+
+.itemTableTaxRateHead,
+.itemTableTaxRate {
+  width: 80px;
+  margin: 5px;
+}
+
+.itemTableTaxNameHead,
+.itemTableTaxName {
+  width: 150px;
+  margin: 5px;
+}
+
+.itemTableTaxIdHead,
+.itemTableTaxId {
+  width: 180px;
+  margin: 5px;
+}
+
+.itemTableTaxRate {
+  border: 1.5px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  display: flex;
+  font-size: 16px;
+}
+
+.itemTableTaxId {
+  display: flex;
+  font-size: 16px;
+}
+
+.itemTableTaxIdInput {
+
+  border: 1.5px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.itemTableTaxName {
+  border: 1.5px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.taxRateInputDiv {
+  flex-grow: 2;
+  width: 45px;
+}
+
+input {
+  height: 100%;
+  padding-left: 8px !important;
+}
+
+.taxRateInput {
+  width: 48px;
+  text-align: center;
+}
+
+.taxNameInput {
+  width: 140px;
+}
+
+.taxRatePercent {
+  flex-grow: 1;
+  width: 40px;
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+  background: rgba(105, 105, 105, 0.3);
+  text-align: center;
+  height: 100%;
+  padding-top: 6px;
+}
+
+.itemTableButton {
+  width: 25px;
+  margin-left: 10px;
+  align-self: center;
+}
+
+.taxRateRow {
+  color: #183185;
+}
+
+.taxRateRow:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.deleteButton {
+  cursor: pointer;
+  color: rgba(105, 105, 105, 0.5);
+}
+
+.inputFooter {
+  width: 100%;
+  transition: width 0.1s;
+  padding: 2px;
+  background: none;
+  border: none;
+}
+
+.footerRow {
+  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.footerEmptyCol {
+  width: 60%;
+}
+
+.footerButton {
+  background: #4dbc29;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.footerButtonCancel {
+  color: #a39494;
+  margin-right: 10px;
+}
+
+.AddTaxRateButtonRow {
+  width: 500px;
+  height: 50px;
+  border: dashed 1.6px rgba(105, 105, 105, 0.3);
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+  margin-left: 10px;
+}
+
+.AddTaxRateButtonRow:hover {
+  background-color: rgba(79, 161, 194, 0.2);
+}
+
+.addTaxRateButtonText {
+  text-align: center;
+}
+
+.AddTaxRateButton {
+  font-size: 24px;
+  font-weight: bolder;
+  color: rgba(105, 105, 105, 0.8);
+}
+
+.taxApplyCheckBox {
+  margin: 15px 0 25px 0;
+  padding: 15px 0 10px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.itemTableCheckbox .mat-checkbox-inner-container {
+  height: 20px;
+  width: 20px;
+}
+
+.itemTableCheckbox {
+  padding-left: 8px;
+}

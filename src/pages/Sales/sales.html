@@ -1,0 +1,37 @@
+<mat-tab-group dynamicHeight>
+  <mat-tab label="All Sales">
+    <div class="headRow">
+      <div class="titleCol">{{ 'Sales Transactions' | translate }}</div>
+      <!-- <select [(ngModel)]="transactionType" (ionChange)="selectTransactionType($event)" class="dropDownCol">
+        <option value="NEW TRANSACTION" selected >New Transaction</option>
+        <option value="NEW SALE" (click)="selectTransactionType('sale')">New Sale</option>
+        <option value="NEW SALE RETURN">New Sale Return</option>
+      </select> -->
+      <mat-form-field>
+          <mat-select [(value)]="transactionType" (ionChange)="selectTransactionType($event)" class="dropDownCol">
+            <mat-option>None</mat-option>
+            <mat-option value="NEW TRANSACTION" selected >New Transaction</mat-option>
+            <mat-option value="NEW SALE" (click)="selectTransactionType('sale')">New Sale</mat-option>
+            <mat-option value="NEW SALE RETURN">New Sale Return</mat-option>
+          </mat-select>
+        </mat-form-field>
+    </div>
+    <app-invoice-widget [currency]="currency"></app-invoice-widget>
+    <app-invoice-table [currency]="currency" [data]="ELEMENT_DATA" [displayedColumns]="displayedColumns"></app-invoice-table>
+  </mat-tab>
+  <mat-tab label="Invoices">
+    <div class="example-large-box mat-elevation-z4">
+      Large content
+    </div>
+  </mat-tab>
+  <mat-tab label="Customers">
+    <div class="example-large-box mat-elevation-z4">
+      Large content
+    </div>
+  </mat-tab>
+  <mat-tab label="Products and Services">
+    <div class="example-large-box mat-elevation-z4">
+      Large content
+    </div>
+  </mat-tab>
+</mat-tab-group>

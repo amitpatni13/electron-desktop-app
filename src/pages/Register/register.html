@@ -1,0 +1,41 @@
+<div>
+  <div>
+    <div class="headertitle">New Account</div>
+  </div>
+</div>
+
+<div>
+  <!-- <form [formGroup]="RegistrationForm">
+    <div>
+
+      <div>
+        <div floating>Business Name</div>
+        <input type="text" [(ngModel)]=businessname formControlName="control_businessName"></input>
+      </div>
+      <control-messages [control]="RegistrationForm.controls.control_businessName"></control-messages>
+      <div>
+        <div floating>Mobile Number</div>
+        <input type="number" [(ngModel)]=mobileno maxlength="10" formControlName="control_mobileNumber"></input>
+      </div>
+      <control-messages [control]="RegistrationForm.controls.control_mobileNumber"></control-messages>
+    </div>
+  </form> -->
+  <div text-center>
+    <div>
+      <span>Already have an account ? </span>
+    </div>
+    <div>
+      <button clear color="primary" (click)="NavigateToSignIn()">Sign in</button>
+    </div>
+  </div>
+</div>
+<div>
+
+  <div padding text-center margin-top>
+    <button full (click)="sendOtp()">request Otp</button>
+    <p class="terms">
+      By clicking Register, you agree to the <b><span (click)="goToTermsPage()" style="text-decoration:underline"> Terms of Service</span></b>      and <b><span (click)="goToPrivacyPolicyPage()" style="text-decoration:underline">Privacy Policy</span></b>
+    </p>
+  </div>
+
+</div>

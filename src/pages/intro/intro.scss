@@ -1,0 +1,56 @@
+app-intro {
+  ion-slide {
+    background-color: #ededed;
+    position: relative;
+  }
+
+  ion-slide img {
+    height: 70vh !important;
+    width: auto !important;
+  }
+
+  .description-field {
+    border: none;
+    text-align: center;
+
+    p {
+      font-size: 10px;
+      font-weight: lighter;
+      width: 100%;
+    }
+
+    h6 {
+      width: 100%;
+      text-transform: uppercase;
+    }
+  }
+
+  .allign-border {
+    margin-bottom: -8.5px;
+  }
+
+  .slide-height {
+    height: 100%;
+    z-index: 9;
+  }
+
+  .fixed-outside {
+    color: #444;
+    font-size: 16px;
+    z-index: 10;
+    position: absolute;
+    bottom: 0;
+    background-color: transparent;
+    width: 100%;
+
+    .option_left {
+      float: left;
+      padding: 12px 20px
+    }
+
+    .option_right {
+      float: right;
+      padding: 12px 20px
+    }
+  }
+}

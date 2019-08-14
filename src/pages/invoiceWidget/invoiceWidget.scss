@@ -1,0 +1,85 @@
+.UnBilledCol {
+  display: flex;
+  color: #fff;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.UnBilledLeftCol {
+  background: #238fc2;
+  width: 50%;
+}
+
+.UnBilledRightCol {
+  background: #075e86;
+  width: 50%;
+}
+
+.UnPaidCol {
+  display: flex;
+  color: #fff;
+  width: 100%;
+  margin-left: 5px;
+  justify-self: center;
+  flex-grow: 1;
+}
+
+.UnPaidLeftCol {
+  background: #fd671c;
+  width: 50%;
+  height: 60px;
+}
+
+.UnPaidRightCol {
+  background: #c5b7b7;
+  width: 50%;
+}
+
+.PaidCol {
+  background: #30c223;
+  color: #fff;
+  flex-grow: 1;
+  width: 100%;
+  margin-left: 5px;
+}
+
+.invoiceWidgetHead {
+  display: flex;
+  color: #075e86;
+  font-size: 12px;
+}
+
+.invoiceWidgetCol {
+  flex-grow: 1;
+  text-align: left;
+  width: 100%;
+  margin-top: 30px;
+  display: flex;
+  margin-left: 3px;
+}
+
+.invoiceWidgetLeftCol {
+  flex-grow: 1;
+  width: 50%;
+  margin-left: 2%;
+}
+
+.invoiceWidgetRightCol {
+  flex-grow: 1;
+  width: 50%;
+}
+
+.invoiceWidgetRow {
+  display: flex;
+}
+
+.colTextTop {
+  margin-left: 10px;
+  margin-top: 15px;
+  font-size: 16px;
+}
+
+.colTextBottom {
+  margin-left: 10px;
+  font-size: 10px;
+}

@@ -1,0 +1,76 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="select">
+    <th mat-header-cell *matHeaderCellDef>
+      <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()"
+        [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
+      </mat-checkbox>
+    </th>
+    <td mat-cell *matCellDef="let row">
+      <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+        [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+      </mat-checkbox>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="invoiceDate">
+    <th mat-header-cell *matHeaderCellDef> DATE </th>
+    <td mat-cell *matCellDef="let element"> {{element.invoiceDate}} </td>
+  </ng-container>
+  <ng-container matColumnDef="type">
+    <th mat-header-cell *matHeaderCellDef> TYPE </th>
+    <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+  </ng-container>
+  <ng-container matColumnDef="invoiceNumber">
+    <th mat-header-cell *matHeaderCellDef> INVOICE NO. </th>
+    <td mat-cell *matCellDef="let element"> {{element.invoiceNumber}} </td>
+  </ng-container>
+  <ng-container matColumnDef="partyName">
+    <th mat-header-cell *matHeaderCellDef> CUSTOMER </th>
+    <td mat-cell *matCellDef="let element"> {{element.partyName}} </td>
+  </ng-container>
+  <ng-container matColumnDef="invoiceDueDate">
+    <th mat-header-cell *matHeaderCellDef> DUE DATE </th>
+    <td mat-cell *matCellDef="let element"> {{element.invoiceDueDate}} </td>
+  </ng-container>
+  <ng-container matColumnDef="ageing">
+    <th mat-header-cell *matHeaderCellDef> AGEING </th>
+    <td mat-cell *matCellDef="let element"> {{element.ageing}} </td>
+  </ng-container>
+  <ng-container matColumnDef="balance">
+    <th mat-header-cell *matHeaderCellDef> BALANCE </th>
+    <td mat-cell *matCellDef="let element"> {{ currency }}{{element.balance}} </td>
+  </ng-container>
+  <ng-container matColumnDef="taxableValue">
+    <th mat-header-cell *matHeaderCellDef> TAXABLE VALUE </th>
+    <td mat-cell *matCellDef="let element"> {{ currency }}{{element.taxableValue}} </td>
+  </ng-container>
+  <ng-container matColumnDef="tax">
+    <th mat-header-cell *matHeaderCellDef> TAX </th>
+    <td mat-cell *matCellDef="let element"> {{ currency }}{{element.tax}} </td>
+  </ng-container>
+  <ng-container matColumnDef="totalInvoiceAmount">
+    <th mat-header-cell *matHeaderCellDef> TOTAL </th>
+    <td mat-cell *matCellDef="let element"> {{ currency }}{{element.totalInvoiceAmount}} </td>
+  </ng-container>
+  <ng-container matColumnDef="attachments">
+    <th mat-header-cell *matHeaderCellDef>
+      <mat-icon aria-label="attach_file">attach_file</mat-icon>
+    </th>
+    <td mat-cell *matCellDef="let element"> {{element.attachments}} </td>
+  </ng-container>
+  <ng-container matColumnDef="invoiceStatus">
+    <th mat-header-cell *matHeaderCellDef> STATUS </th>
+    <td mat-cell *matCellDef="let element"> {{element.invoiceStatus}} </td>
+  </ng-container>
+  <ng-container matColumnDef="Action">
+    <th mat-header-cell *matHeaderCellDef> ACTION </th>
+    <td mat-cell *matCellDef="let element">
+      <select [(ngModel)]="element.Action" (ngModelChange)="selectPaymentAction($event)" class="tableDropDownCol">
+        <option value="RECEIVE PAYMENT" selected>Receive Payment</option>
+      </select>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
+  </tr>
+</table>
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>

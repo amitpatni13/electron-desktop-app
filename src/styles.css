@@ -1,0 +1,86 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.fixed-dashboard-header {
+  background: #183185 !important;
+}
+
+.sidebar-icon {
+  font-size: 30px !important;
+  color: #f4f4f4 !important;
+  border: none;
+}
+
+.mat-form-field-underline {
+  background: none !important;
+}
+
+.mat-select-arrow,
+.mat-select-value-text {
+  color: #f3f3f3 !important;
+}
+
+input:focus,
+button:focus,
+textarea:focus,
+select:focus {
+  outline: none !important;
+}
+
+app-bill-format-one input.inputData.ui-inputtext {
+  min-width: 30px !important;
+  max-width: 150px !important;
+  transition: width 0.1s;
+  padding: 2px;
+  background: none;
+  border: none;
+}
+
+app-bill-format-one input.inputData.ui-inputtext:focus {
+  background: rgba(79, 161, 194, 0.2) !important;
+  border: 2px solid rgba(24, 49, 133, 0.6) !important;
+  border-radius: 5px;
+}
+
+app-bill-format-one div.itemTableRowRate .popover {
+  max-width: 600px !important;
+  z-index: 11;
+  opacity: 1;
+  margin-top: 15px;
+}
+
+app-bill-format-one div.itemTableRowRate .popover-body {
+  width: 580px;
+  height: 400px;
+  overflow: scroll;
+}
+
+app-bill-format-one div.itemTableRowRate .arrow::before {
+  top: -47px;
+  border-width: 2rem 1.5rem 1.5rem 1.5rem;
+  border-bottom-color: #696969;
+}
+
+app-bill-format-one div.itemTableRowRate .arrow::after {
+  top: -47px;
+  border-width: 2rem 1.5rem 1.5rem 1.5rem;
+  border-bottom-color: #f7f7f7;
+}
+
+app-bill-format-one div.itemTableRowRate .popover-header {
+  font-size: 1.5rem;
+}
+
+::ng-deep .mat-primary .mat-pseudo-checkbox-checked {
+  background: #183185;
+}

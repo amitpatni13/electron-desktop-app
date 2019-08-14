@@ -1,0 +1,298 @@
+.users {
+  color: black !important;
+}
+
+.sidebarSize {
+  width: 200px;
+  z-index: 111;
+}
+
+.sidebarRightSize {
+  width: 145px;
+  z-index: 111;
+}
+
+.menu-icon {
+  font-size: 20px;
+  color: #183185;
+  border: none;
+}
+
+.left-menu-button {
+  background: none;
+  border: none;
+}
+
+.contentAppComponent {
+  font-family: Calibri;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.nav-background {
+  background-color: #005196;
+}
+
+.no-scroll .scroll-content {
+  overflow-y: auto !important;
+}
+
+.businessInfoHeader {
+  height: 135px;
+  background-color: #ffffff;
+  border-bottom: 1px solid rgba(105, 105, 105, 0.2);
+  box-shadow: 0 8px 14px -6px #696969;
+  overflow: hidden;
+}
+
+.businessDetailsEditLink {
+  background: none;
+  border: none;
+  float: right;
+  margin-right: 5px;
+}
+
+.pi-pencil:before {
+  border: none;
+}
+
+.businessDetailsGroup {
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  justify-self: left;
+  margin-left: 5%;
+}
+
+.businessUserName {
+  margin-top: 5%;
+}
+
+.businessUserMobile {
+  margin-top: -8px;
+}
+
+.businessLogo {
+  justify-self: center;
+}
+
+#list {
+  list-style-type: none;
+}
+
+#list-item1 {
+  float: left;
+  padding-left: 0px;
+  margin-top: -12px;
+}
+
+#list-item2 {
+  float: right;
+  padding-right: 15px;
+  margin-top: 12px;
+  bottom: 8px;
+  width: 30px;
+  height: 30px;
+}
+
+.menuItem {
+  width: 200px;
+}
+
+.menuItem:hover {
+  cursor: pointer;
+  background-color: #005196;
+  opacity: 0.5;
+}
+
+.menuItemImage {
+  color: #005196;
+}
+
+#button2 {
+  padding-left: 2px;
+  margin: 0px;
+  width: 260px;
+}
+
+#button3 {
+  padding-left: 40px;
+  margin: -5px;
+  margin-bottom: -8px;
+  width: 100%;
+}
+
+#button4 {
+  float: bottom;
+  padding-left: 13px;
+  margin: -5px;
+  margin-bottom: -8px;
+}
+
+#title-align {
+  position: relative;
+  left: 0;
+  bottom: 3px;
+  padding-left: 15px;
+  font-size: 18px;
+}
+
+.main-menu {
+  border: 0;
+  color: #696969;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+#buttonLogout {
+  float: bottom;
+  padding-left: 13px;
+  margin: -5px;
+  padding-bottom: 3%;
+  margin-top: 2%;
+  margin-bottom: 5%;
+}
+
+.toastSuccess {
+  color: white;
+}
+
+.toastInfo {
+  color: white;
+}
+
+.toastWarning {
+  color: whitesmoke;
+}
+
+.toastError {
+  color: whitesmoke;
+}
+
+.mainContainer {
+  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  position: static;
+}
+
+.pageContainer {
+  z-index: 1;
+  margin-top: 7%;
+  float: none;
+}
+
+.ui-menuitem-icon {
+  color: #f8f8f8;
+  font-size: 32px;
+}
+
+.sidebarButton {
+  height: 8%;
+  width: 8%;
+  background: none;
+  color: whitesmoke;
+  font-size: xx-large;
+  font-weight: bolder;
+  margin-left: 5%;
+  margin-bottom: 5%;
+  margin-top: 25%;
+  z-index: 100;
+}
+
+.searchbar-style {
+  display: grid;
+  grid-template-columns: 5% 95%;
+  margin: auto;
+  margin-bottom: 10%;
+  margin-left: 15px;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.searchbar-input {
+  justify-self: start;
+  border: 0 none;
+  outline: 0 none;
+  text-align: left;
+  resize: horizontal;
+  overflow: auto;
+  min-width: 96%;
+  max-width: 1000px;
+  z-index: 9999;
+  color: black;
+  background-color: whitesmoke;
+}
+
+.searchbar-button {
+  justify-self: center;
+  background-color: whitesmoke;
+  color: #696969;
+  height: 40px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.search-button-img {
+  color: #696969;
+}
+
+input {
+  z-index: 9999;
+}
+
+#sidebar-wrapper {
+  background-color: white;
+  color: #696969;
+  position: fixed;
+  height: 100%;
+}
+
+.sidebar-nav {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  list-style: none;
+}
+
+.sidebar-nav li {
+  text-indent: 20px;
+  line-height: 50px;
+}
+
+.sidebar-nav li a {
+  color: #696969;
+  display: block;
+  text-decoration: none;
+}
+
+.sidebar-nav li a:hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: #696969;
+  text-decoration: none;
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+  text-decoration: none;
+}
+
+.navbar-default {
+  background-color: #f3f3f3;
+  border-color: white;
+  height: 80%;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.searchBar {
+  width: 400px;
+}
+
+.mat-drawer-inner-container{
+  overflow: hidden;
+}

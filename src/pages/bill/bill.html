@@ -1,0 +1,26 @@
+<div class="billMain">
+  <div class="billMainLeft">
+    <div class="titleRow">
+      <div class="billTitle">{{ 'New Invoice' | translate }}</div>
+      <button mat-button class="billButtonCancel">Cancel</button>
+      <button mat-raised-button class="billButton">Save</button>
+      <button mat-raised-button class="billButton">Send...</button>
+    </div>
+    <mat-card class="billMainCard" *ngIf="InvoiceForm" [formGroup]="InvoiceForm">
+      <div *ngIf="'1' == billFormatSelected;then ShowBillFormatOne else ShowBillFormatTwo" class="billSection"></div>
+      <ng-template #ShowBillFormatOne>
+        <app-bill-format-one [InvoiceForm]="InvoiceForm" [currency]="currency" [footerData]="footerData" [selectedTaxRates]="selectedTaxRates"
+          (addItem)="addItems($event)" (removeItem)="removeItem(index)" (dragDrop)="drop($event)" (taxRateAdded)="updateTaxRateSelected(taxRates)"></app-bill-format-one>
+      </ng-template>
+      <ng-template #ShowBillFormatTwo>
+        <app-bill-format-two [InvoiceForm]="InvoiceForm" [currency]="currency" [footerData]="footerData" [selectedTaxRates]="selectedTaxRates"
+          (addItem)="addItems($event)" (removeItem)="removeItem(index)" (dragDrop)="drop($event)" (taxRateAdded)="updateTaxRateSelected(taxRates)"></app-bill-format-two>
+      </ng-template>
+    </mat-card>
+  </div>
+  <div class="billMainRight">
+    <div class="settingsTitle">Settings</div>
+    <div class="settingsSubTitle">FOR THIS INVOICE</div>
+  </div>
+</div>
+<div class="footer"></div>

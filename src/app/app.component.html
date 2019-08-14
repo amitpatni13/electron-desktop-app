@@ -1,0 +1,68 @@
+<mat-sidenav-container>
+  <!-- SideBar Left Section -->
+  <mat-sidenav [(opened)]="opened" class="sidebarSize">
+    <!-- Header Section -->
+    <div class="businessInfoHeader">
+      <button mat-icon-button (click)="_closeSidebar()" class="businessDetailsEditLink left-menu-button"
+        (click)="NavigateToBusinessPage()">
+        <mat-icon aria-label="edit">edit</mat-icon>
+      </button>
+      <div class="businessLogo">
+        <img id="business_logo" src="{{business_logo}}" onerror="this.src='assets/images/userProfile.png'" alt="User"
+          height="80px" width="80px" />
+      </div>
+      <div class="businessDetailsGroup">
+        <p class="businessUserName">{{ businessName }}</p>
+        <p class="businessUserMobile">{{ mobileNumber }}</p>
+      </div>
+    </div>
+    <!-- Main Section -->
+    <nav class="navbar-default" role="navigation">
+        <div id="sidebar-wrapper">
+          <ul class="sidebar-nav">
+            <li>
+              <div (click)="_closeSidebar()" class="menuItem" *ngFor="let page of pages" (click)="openPage(page)">
+                <button mat-icon-button class="left-menu-button">
+                  <mat-icon aria-label="click">{{page.icon}}</mat-icon>
+                  <!-- Below tag is used to display title name in form of array list-->
+                  <span id="title-align">{{page.title}}</span>
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
+    </nav>
+  </mat-sidenav>
+  <!-- SideBar Right Section -->
+  <mat-sidenav [(opened)]="opened" position="end" class="sidebarRightSize">
+    <nav class="navbar-default" role="navigation">
+        <div id="sidebar-wrapper">
+          <ul class="sidebar-nav">
+            <li>
+              <div (click)="_closeSidebar()" class="menuItem" *ngFor="let page of pagesRight" (click)="openPage(page)">
+                <button mat-icon-button class="left-menu-button">
+                  <mat-icon aria-label="click">{{page.icon}}</mat-icon>
+                  <!-- Below tag is used to display title name in form of array list-->
+                  <span id="title-align">{{page.title}}</span>
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
+    </nav>
+  </mat-sidenav>
+  <!-- Page Section -->
+  <mat-sidenav-content class="mainContainer">
+    <!-- Fixed NavBar on Top Left -->
+    <p-menubar [model]="menuBar" styleClass="fixed-dashboard-header">
+      <input type="text" pInputText class="searchBar" placeholder="Search Party, Invoices, Amount, Inventory and more...">
+      <button mat-icon-button (click)="searchData()">
+        <mat-icon aria-label="search" class="sidebar-icon">search</mat-icon>
+      </button>
+    </p-menubar>
+    <!-- Page Interface -->
+    <section class="pageContainer" (click)="_closeSidebar()">
+      <router-outlet></router-outlet>
+    </section>
+  </mat-sidenav-content>
+</mat-sidenav-container>

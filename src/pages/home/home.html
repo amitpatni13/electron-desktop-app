@@ -1,0 +1,164 @@
+<div class="dashboard-home">
+  <div class="ui-g" style="overflow-x: auto;">
+    <div class="ui-g-4">
+      <mat-card class="home-card">
+        <mat-card-content>
+          <div class="card-heading">
+            <div class="card-title">Invoices</div>
+            <div class="card-subtitle">
+              <span class="card-subtitle-left">{{ currency }} 36,987.02 UNPAID</span>
+              <span class="card-subtitle-center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LAST 365 DAYS</span>
+              <span class="card-subtitle-right"></span>
+            </div>
+          </div>
+          <div class="card-row">
+            <div class="card-col">
+              <div class="headerAmount textLeft">{{ currency }} 9,111.01</div>
+              <div class="headerText textLeft">OVERDUE</div>
+            </div>
+            <div class="card-col">
+              <div class="headerAmount textRight">{{ currency }} 27,111.01</div>
+              <div class="headerText textRight">NOT DUE YET</div>
+            </div>
+          </div>
+          <div class="InvoiceProgressBarRow">
+            <div class="InvoiceProgressBar" [ngStyle]="{ 'width': '20%' }"></div>
+            <div class="InvoiceDueProgressBar" [ngStyle]="{ 'width': '80%' }"></div>
+          </div>
+          <div class="card-subtitle">
+            <span class="card-subtitle-left">{{ currency }} 368.02 PAID</span>
+            <span class="card-subtitle-center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LAST 30 DAYS</span>
+            <span class="card-subtitle-right"></span>
+          </div>
+          <div class="card-row">
+            <div class="card-col">
+              <div class="headerAmount textLeft">{{ currency }} 0.00</div>
+              <div class="headerText textLeft">NOT DEPOSITED</div>
+            </div>
+            <div class="card-col">
+              <div class="headerAmount textRight">{{ currency }} 0.00</div>
+              <div class="headerText textRight">DEPOSITED</div>
+            </div>
+          </div>
+          <div class="InvoiceDepositedProgressBarRow">
+            <div class="InvoiceNotDepositedProgressBar" [ngStyle]="{ 'width': '50%' }"></div>
+            <div class="InvoiceDepositedProgressBar" [ngStyle]="{ 'width': '50%' }"></div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="ui-g-4">
+      <mat-card class="home-card">
+        <mat-card-content>
+          <div class="card-heading">
+            <div class="expense-card-head">
+              <div class="card-title textLeft">Expenses</div>
+              <select matNativeControl [(ngModel)]="ExpensePeriod" class="card-head-dropdown" (ionChange)="ExpenseCardData()">
+                <option value="TODAY">Today</option>
+                <option value="THIS WEEK">This Week</option>
+                <option value="THIS MONTH" selected>This Month</option>
+                <option value="THIS YEAR">This Year</option>
+                <option value="ALL">All</option>
+              </select>
+            </div>
+          </div>
+          <div class="card-subheading">
+            <div class="headerAmount textLeft">{{ currency }} {{ NetExpense | INRFormat:currency }}</div>
+            <div class="headerText textLeft">{{ ExpensePeriod }}</div>
+          </div>
+          <canvas #expenseCanvas class="chartArea"></canvas>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="ui-g-4">
+      <mat-card class="home-card">
+        <mat-card-content>
+          <div class="card-heading">
+            <div class="card-title">Bank Accounts</div>
+            <div class="ui-g card-subtitle">
+              <span class="ui-g-4 card-subtitle-left">Ing</span>
+              <span class="ui-g-4 card-subtitle-center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+              <span class="ui-g-4 card-subtitle-right">19 to Review</span>
+            </div>
+            <div class="ui-g card-subtitle">
+              <span class="ui-g-4 card-subtitle-left">Bank Balance</span>
+              <span class="ui-g-4 card-subtitle-center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ currency }} 36,987.02</span>
+              <span class="ui-g-4 card-subtitle-right">Updated 14</span>
+            </div>
+            <div class="ui-g card-subtitle">
+              <span class="ui-g-4 card-subtitle-left">In DigiBill</span>
+              <span class="ui-g-4 card-subtitle-center">{{ currency }} 2,137.00</span>
+              <span class="ui-g-4 card-subtitle-right">hours ago</span>
+            </div>
+          </div>
+          <hr>
+          <div class="footer-row">
+            <div class="ui-g">
+              <div class="ui-g-6 textLeft">Connect Accounts</div>
+              <select matNativeControl [(ngModel)]="BankAccountConnect" class="ui-g-6 card-bank-dropdown">
+                <option value="Go to registers" selected>Go to registers</option>
+              </select>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="ui-g-4">
+      <mat-card class="home-card">
+        <mat-card-content>
+          <div class="card-heading">
+            <div class="expense-card-head">
+              <div class="card-title textLeft">Profit and Loss</div>
+              <select matNativeControl [(ngModel)]="ProfitLossPeriod" class="card-head-dropdown" (ionChange)="ProfitLossCardData()">
+                <option value="TODAY">Today</option>
+                <option value="THIS WEEK">This Week</option>
+                <option value="THIS MONTH" selected>This month</option>
+                <option value="THIS YEAR">This Year</option>
+                <option value="ALL">All</option>
+              </select>
+            </div>
+          </div>
+          <div class="card-subheading">
+            <div class="headerAmount textLeft">{{ currency }} {{ NetProfit | INRFormat:currency }}</div>
+            <div class="headerText textLeft">{{ ProfitLossPeriod }}</div>
+          </div>
+          <canvas #profitLossCanvas class="chartArea"></canvas>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="ui-g-4">
+      <mat-card class="home-card">
+        <mat-card-content>
+          <div class="card-heading">
+            <div class="expense-card-head">
+              <div class="card-title textLeft">Sales</div>
+              <select matNativeControl [(ngModel)]="SalesPeriod" class="card-head-dropdown" (ionChange)="SalesCardData()">
+                <option value="TODAY">Today</option>
+                <option value="THIS WEEK">This Week</option>
+                <option value="LAST MONTH" selected>Last Month</option>
+                <option value="THIS YEAR">This Year</option>
+                <option value="ALL">All</option>
+              </select>
+            </div>
+          </div>
+          <div class="card-subheading">
+            <div class="headerAmount textLeft">{{ currency }} {{ NetSales | INRFormat:currency }}</div>
+            <div class="headerText textLeft">{{ SalesPeriod }}</div>
+          </div>
+          <canvas #salesCanvas class="chartArea"></canvas>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="ui-g-4">
+      <mat-card class="home-card">
+        <mat-card-content>
+          <div class="card-heading">
+            <div class="card-title">DISCOVER MORE</div>
+            <div class="card-subtitle">How to add or import suppliers
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

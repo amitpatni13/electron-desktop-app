@@ -1,0 +1,254 @@
+<div *ngIf="InvoiceForm && InvoiceForm.controls" [formGroup]="InvoiceForm" class="main">
+  <div class="businessUserDetailsRow">
+    <div class="businessUserLogo">
+      <div class="BusinessLogoText">{{ 'Drag your logo here,' | translate }} <br>{{ 'or' | translate }}
+        <span class="businessLogoLink"> {{ 'select a file' | translate }}</span>
+      </div>
+    </div>
+    <div class="businessDataDivider"></div>
+    <div class="businessUserData">
+      <div class="businessUserDataLeft">
+        <div class="businessText">
+          <input type="text" placeholder="Business Name" [formControlName]="'businessName'" id="inputBusinessName"
+            class="inputData" (ngModelChange)="resizeElement('inputBusinessName', 8, 13)" />
+        </div>
+        <div class="businessText">
+          <input type="text" placeholder="Contact Number" [formControlName]="'businessContactNumber'"
+            id="inputBusinessNumber" class="inputData" (ngModelChange)="resizeElement('inputBusinessNumber', 8, 14)" />
+        </div>
+      </div>
+      <div class="businessUserDataRight">
+        <div class="businessText">
+          <input type="text" placeholder="Street" [formControlName]="'businessAddress'" id="inputBusinessStreet"
+            class="inputData" (ngModelChange)="resizeElement('inputBusinessStreet', 8, 6)" />
+        </div>
+        <div class="businessText businessAddressRow">
+          <span class="businessText">
+            <input type="text" placeholder="City" [formControlName]="'businessCity'" id="inputBusinessCity"
+              class=" inputData" (ngModelChange)="resizeElement('inputBusinessCity', 8, 4)" />
+          </span>
+          <span class="businessAddressText">,</span>
+          <span class="businessText">
+            <input type="text" placeholder="State" [formControlName]="'businessState'" id="inputBusinessState"
+              class="inputData" (ngModelChange)="resizeElement('inputBusinessState', 8, 5)" />
+          </span>
+        </div>
+        <div class="businessText">
+          <input type="text" placeholder="Pin Code" [formControlName]="'businessPinCode'" id="inputBusinessPinCode"
+            class="inputData" (ngModelChange)="resizeElement('inputBusinessPinCode', 8, 8)" />
+        </div>
+        <div class="businessText">
+          <select placeholder="Country" [formControlName]="'businessCountry'" id="inputBusinessCountry"
+            class="selectData" (ngModelChange)="resizeElement('inputBusinessCountry', 8, 7)"
+            [ngClass]="{ 'placeholderText': 'None' == InvoiceForm.controls.businessCountry.value }">
+            <option value="None" hidden selected>{{ 'Country' | translate }}</option>
+            <option value="India" selected>{{ 'India' | translate }}</option>
+            <option value="Australia">{{ 'Australia' | translate }}</option>
+            <option value="England">{{ 'England' | translate }}</option>
+            <option value="United States">{{ 'United States' | translate }}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="invoiceDetailsRow">
+    <div class="partyDetailsColumn">
+      <div class="partyDetailsColumnHeader inputLabel">{{ 'Billed To' | translate }}</div>
+      <div *ngIf="partyData || addNewParty; then ShowPartyData else ShowAddPartySelect"></div>
+      <ng-template #ShowAddPartySelect>
+        <div class="addPartyLogo" (click)="addNewPartyToggle()">
+          <div class="partyLogoText">
+            <mat-icon aria-label="add" class="addPartyButton">add</mat-icon>
+            <span class="addPartyButtonText">{{ 'Add Party' | translate}}</span>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template #ShowPartyData>
+        <div class="businessText">
+          <input type="text" placeholder="Party Name" [formControlName]="'partyName'" id="inputPartyName"
+            class="inputData" (ngModelChange)="resizeElement('inputPartyName', 8, 10)" />
+        </div>
+        <div class="businessText">
+          <input type="text" placeholder="Contact Number" [formControlName]="'partyContactNumber'" id="inputPartyNumber"
+            class="inputData" (ngModelChange)="resizeElement('inputPartyNumber', 8, 14)" />
+        </div>
+        <div class="businessText">
+          <input type="text" placeholder="Street Address" [formControlName]="'partyAddress'" id="inputPartyStreet"
+            class="inputData" (ngModelChange)="resizeElement('inputPartyStreet', 8, 14)" />
+        </div>
+        <div class="businessText businessAddressRow">
+          <span class="businessText">
+            <input type="text" placeholder="City" [formControlName]="'partyCity'" id="inputPartyCity" class=" inputData"
+              (ngModelChange)="resizeElement('inputPartyCity', 8, 4)" />
+          </span>
+          <span class="businessAddressText">,</span>
+          <span class="businessText">
+            <input type="text" placeholder="State" [formControlName]="'partyState'" id="inputPartyState"
+              class="inputData" (ngModelChange)="resizeElement('inputPartyState', 8, 5)" />
+          </span>
+        </div>
+        <div class="businessText">
+          <input type="text" placeholder="Pin Code" [formControlName]="'partyPinCode'" id="inputPartyPinCode"
+            class="inputData" (ngModelChange)="resizeElement('inputPartyPinCode', 8, 8)" />
+        </div>
+        <div class="businessText">
+          <select placeholder="Country" [formControlName]="'partyCountry'" id="inputPartyCountry" class="selectData"
+            (ngModelChange)="resizeElement('inputPartyCountry', 8, 7)"
+            [ngClass]="{ 'placeholderText': 'None' == InvoiceForm.controls.partyCountry.value }">
+            <option value="None" hidden selected>{{ 'Country' | translate }}</option>
+            <option value="India" selected>{{ 'India' | translate }}</option>
+            <option value="Australia">{{ 'Australia' | translate }}</option>
+            <option value="England">{{ 'England' | translate }}</option>
+            <option value="United States">{{ 'United States' | translate }}</option>
+          </select>
+        </div>
+      </ng-template>
+    </div>
+    <div class="invoiceDateColumn">
+      <div class="inputLabel">{{ 'Invoice Date' | translate }}</div>
+      <p-calendar [formControlName]="'InvoiceDate'" inputStyleClass="inputData inputInvoiceDate" dateFormat="dd-MM-yy"
+        id="inputInvoiceDate" (onSelect)="resizeClassElement('inputInvoiceDate', 7, 8, 0)"></p-calendar>
+      <div class="inputLabel invoiceDataColumn">{{ 'Invoice Due Date' | translate }}</div>
+      <p-calendar [formControlName]="'InvoiceDueDate'" inputStyleClass="inputData inputInvoiceDueDate"
+        dateFormat="dd-MM-yy" id="inputInvoiceDueDate" (onSelect)="resizeClassElement('inputInvoiceDueDate', 7, 8, 0)">
+      </p-calendar>
+    </div>
+    <div class="invoiceNumberColumn">
+      <div class="inputLabel">{{ 'Invoice Number' | translate }}</div>
+      <input type="text" placeholder="Enter an Invoice #" [formControlName]="'InvoiceNumber'" id="inputInvoiceNumber"
+        class="inputData" (ngModelChange)="resizeElement('inputInvoiceNumber', 7, 18)" />
+      <div class="inputLabel invoiceDataColumn">{{ 'Reference' | translate }}</div>
+      <input type="text" placeholder="Enter value (e.g. PO #)" [formControlName]="'PaymentReference'"
+        id="inputReferenceNumber" class="inputData" (ngModelChange)="resizeElement('inputReferenceNumber', 7, 22)" />
+    </div>
+    <div class="invoiceAmountDueColumn">
+      <div class="amountDueLabel inputLabel">{{ 'Amount Due' | translate }}</div>
+      <div class="amountDueValue">{{ currency }} {{ footerData.balance }}</div>
+    </div>
+  </div>
+  <div class="invoiceInfoOutline"></div>
+  <div class="itemsTable">
+    <div class="itemTableHead">
+      <div class="itemTableHeadDrag"></div>
+      <div class="itemTableHeadDesc">{{ 'Description' | translate }}</div>
+      <div class="itemTableHeadText">{{ 'Rate' | translate }}</div>
+      <div class="itemTableHeadText">{{ 'Qty' | translate }}</div>
+      <div class="itemTableHeadText">{{ 'Total' | translate }}</div>
+      <div class="itemTableHeadDelete"></div>
+    </div>
+    <div formArrayName="items" cdkDropList (cdkDropListDropped)="drop($event)" class="dragList">
+      <div class="itemTableRow dragElement" *ngFor="let item of InvoiceForm.get('items').controls; let position=index"
+        cdkDrag [id]="position" #elem="cdkDrag">
+        <div [formGroupName]="position">
+          <div class="itemTableRowDrag" cdkDragHandle>
+            <button type="button" class="drag-handle" mat-icon-button>
+              <mat-icon aria-label="drag_handle" class="dragButton">drag_handle</mat-icon>
+            </button>
+          </div>
+          <div class="itemTableRowName">
+            <div>
+              <input type="text" placeholder="Enter an Item Name" [formControlName]="'itemName'" class="inputData"
+                id="inputItemName{{position}}" (ngModelChange)="resizeElement('inputItemName'+position, 7, 22)" />
+            </div>
+            <div>
+              <input type="text" placeholder="Enter an Item Description" [formControlName]="'itemDescription'"
+                class="inputData" id="inputItemDescription{{position}}"
+                (ngModelChange)="resizeElement('inputItemDescription'+position, 7, 35)" />
+            </div>
+          </div>
+          <div class="itemTableRowRate">
+            <div>
+              <span *ngIf="'' != item.controls.itemPrice.value">{{ currency }}</span>
+              <input type="text" placeholder="{{ currency }}0.00" [formControlName]="'itemPrice'"
+                class="inputData inputItemPrice itemTableInput" id="inputItemPrice{{position}}"
+                (ngModelChange)="resizeElement('inputItemPrice'+position, 7, 5, position)" />
+            </div>
+            <button type="button" mat-button class="taxRateRow" placement="bottom" [ngbPopover]="TaxRatePopover"
+              popoverTitle="Tax Rates" [autoClose]="'outside'" #taxRatePopover="ngbPopover">
+              <span *ngIf="selectedTaxRates && selectedTaxRates.length">
+                <span *ngFor="let tax of selectedTaxRates; let taxSlabIndex = index">+{{ tax.TaxSlabName }}
+                  <span *ngIf="taxSlabIndex + 1 != selectedTaxRates.length">,</span>
+                </span>
+              </span>
+              <span *ngIf="!(selectedTaxRates && selectedTaxRates.length)">{{ 'Add Taxes' | translate }}</span>
+            </button>
+          </div>
+          <div class="itemTableRowText">
+            <input type="text" placeholder="0.0" [formControlName]="'itemQuantity'"
+              class="inputData inputItemQuantity itemTableInput" id="inputItemQuantity{{position}}"
+              (ngModelChange)="resizeElement('inputItemQuantity'+position, 7, 5, position)" />
+          </div>
+          <div class="itemTableRowText">
+            <span *ngIf="'' != item.controls.itemTotal.value">{{ currency }}</span>
+            <input type="text" placeholder="{{ currency }}0.00" [formControlName]="'itemTotal'"
+              class="inputData inputItemTotal itemTableInput" id="inputItemTotal{{position}}"
+              (ngModelChange)="resizeElement('inputItemTotal'+position, 7, 5, position)" />
+          </div>
+          <div class="itemTableRowDelete">
+            <button type="button" mat-icon-button (click)="removeFormItem(position)">
+              <mat-icon aria-label="delete" class="deleteButton">delete</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="AddItemButtonRow" (click)="addFormItem()">
+    <mat-icon aria-label="add" class="AddItemButton">add</mat-icon>
+    <span class="addItemButtonText">{{ 'Add a Item' | translate}}</span>
+  </div>
+  <div class="invoiceTotalSection">
+    <div class="invoiceTotalSectionLeft"></div>
+    <div class="invoiceTotalSectionRight">
+      <div class="invoiceTotalRow">
+        <div class="invoiceTotalRowLeft">{{ 'Subtotal' | translate }}</div>
+        <div class="invoiceTotalRowRight">{{ currency }}{{ footerData.totalBillPrice | INRFormat:currency }}</div>
+      </div>
+      <div class="invoiceTotalRow">
+        <div class="invoiceTotalRowLeft">{{ 'Discount' | translate }}</div>
+        <div class="invoiceTotalRowRight">
+          <span *ngIf="footerData.totalBillDiscount">{{ currency }}</span>
+          {{ footerData.totalBillDiscount | INRFormat:currency }}
+        </div>
+      </div>
+      <div class="invoiceTotalRow">
+        <div class="invoiceTotalRowLeft">{{ 'Tax' | translate }}</div>
+        <div class="invoiceTotalRowRight">{{ currency }}{{ footerData.totalTax | INRFormat:currency }}</div>
+      </div>
+      <hr>
+      <div class="invoiceTotalRow">
+        <div class="invoiceTotalRowLeft">{{ 'Total' | translate }}</div>
+        <div class="invoiceTotalRowRight">
+          <span *ngIf="footerData.totalPayable">{{ currency }}</span>
+          {{ footerData.totalPayable | INRFormat:currency }}
+        </div>
+      </div>
+      <div class="invoiceTotalRow">
+        <div class="invoiceTotalRowLeft">{{ 'AmountPaid' | translate }}</div>
+        <div class="invoiceTotalRowRight">
+          <span *ngIf="footerData.amtReceived">{{ currency }}</span>
+          {{ footerData.amtReceived | INRFormat:currency }}
+        </div>
+      </div>
+      <hr>
+      <div class="invoiceTotalRow">
+        <div class="invoiceTotalRowLeft">{{ 'Amount Due' | translate }}</div>
+        <div class="invoiceTotalRowRight">{{ currency }}{{ footerData.balance | INRFormat:currency }}</div>
+      </div>
+    </div>
+  </div>
+  <div class="invoiceDataColumn">
+    <div class="inputLabel">{{ 'Notes' | translate }}</div>
+    <input type="text" placeholder="Enter notes or bank transfer details (optional)" [formControlName]="'InvoiceNote'"
+      class="inputFooter" />
+  </div>
+  <div class="invoiceDataColumn">
+    <div class="inputLabel">{{ 'Terms' | translate }}</div>
+    <input type="text" placeholder="Enter your terms and conditions" [formControlName]="'InvoiceTerms'"
+      class="inputFooter" />
+  </div>
+</div>
+<ng-template #TaxRatePopover>
+  <app-tax-rates-modal class="taxRatePopoverModal" [selectedTaxRates]="selectedTaxRates" [taxRatePopover]="taxRatePopover"
+    (taxRateAdded)="updateTaxRateSelected(taxRates)"></app-tax-rates-modal>
+</ng-template>

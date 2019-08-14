@@ -1,0 +1,364 @@
+.main {
+  margin: 25px;
+}
+
+.businessUserDetailsRow,
+.invoiceDetailsRow {
+  display: flex;
+  margin-top: 25px;
+}
+
+.businessUserLogo {
+  width: 225px;
+  height: 100px;
+  border: dashed 1.6px rgba(105, 105, 105, 0.3);
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.businessUserLogo:hover {
+  background-color: rgba(79, 161, 194, 0.2);
+}
+
+.BusinessLogoText {
+  text-align: center;
+}
+
+.businessLogoLink {
+  color: rgba(29, 125, 214, 0.5);
+}
+
+.businessUserData {
+  flex-grow: 1;
+  width: 40%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: right;
+}
+
+.businessUserDataLeft {
+  flex-grow: 1;
+}
+
+.businessUserDataRight {
+  flex-grow: 1;
+}
+
+.businessDataDivider {
+  flex-grow: 1;
+  width: 30%;
+}
+
+.inputData,
+.selectData {
+  min-width: 30px !important;
+  max-width: 150px !important;
+  transition: width 0.1s;
+  padding: 2px;
+  background: none;
+  border: none;
+}
+
+.selectData {
+  text-align-last: left;
+}
+
+#inputBusinessName,
+#inputBusinessNumber,
+#inputPartyName,
+#inputPartyNumber,
+#inputInvoiceDate {
+  width: 102px;
+}
+
+#inputBusinessCity,
+#inputPartyCity {
+  width: 30px;
+}
+
+#inputBusinessState,
+#inputBusinessStreet,
+#inputPartyState,
+#inputPartyStreet {
+  width: 40px;
+}
+
+#inputBusinessCountry,
+#inputPartyCountry {
+  width: 50px;
+}
+
+#inputBusinessPinCode,
+#inputPartyPinCode,
+#inputInvoiceDueDate {
+  width: 60px;
+}
+
+#inputInvoiceNumber {
+  width: 122px;
+}
+
+#inputReferenceNumber {
+  width: 150px;
+}
+
+.businessAddressText {
+  margin-right: 5px;
+  width: 10px;
+}
+
+.addPartyButtonText {
+  font-size: 16px;
+}
+
+.addPartyLogo {
+  width: 175px;
+  height: 110px;
+  border: dashed 1.6px rgba(105, 105, 105, 0.3);
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.addPartyLogo:hover {
+  background-color: rgba(79, 161, 194, 0.2);
+}
+
+.addPartyLogoText {
+  text-align: center;
+}
+
+input:focus,
+select:focus {
+  background: rgba(79, 161, 194, 0.2) !important;
+  border: 2px solid rgba(24, 49, 133, 0.6) !important;
+  border-radius: 5px;
+}
+
+input {
+  cursor: text;
+}
+
+select,
+button {
+  cursor: pointer;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+}
+
+.businessAddressRow {
+  display: flex;
+}
+
+.partyDetailsColumn {
+  flex-grow: 2;
+  padding: 5px;
+}
+
+.invoiceDateColumn {
+  flex-grow: 2;
+  padding: 5px;
+}
+
+.invoiceNumberColumn {
+  flex-grow: 3;
+  padding: 5px;
+}
+
+.invoiceAmountDueColumn {
+  flex-grow: 3;
+  padding: 5px;
+}
+
+.amountDueLabel {
+  text-align: right;
+}
+
+.amountDueValue {
+  font-size: 26px;
+  text-align: right;
+  margin-top: 8px;
+}
+
+.invoiceInfoOutline {
+  margin-top: 15px;
+  background: #183185;
+  height: 2px;
+}
+
+.AddItemButtonRow {
+  width: 100%;
+  height: 50px;
+  border: dashed 1.6px rgba(105, 105, 105, 0.3);
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.AddItemButtonRow:hover {
+  background-color: rgba(79, 161, 194, 0.2);
+}
+
+.addItemButtonText {
+  text-align: center;
+}
+
+.AddItemButton,
+.addPartyButton {
+  font-size: 24px;
+  font-weight: bolder;
+  color: rgba(105, 105, 105, 0.8);
+}
+
+.itemsTable {
+  width: 100%;
+}
+
+.itemTableHead,
+.itemTableRow>div,
+.invoiceTotalSection {
+  display: flex;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.itemTableRow>div {
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(105, 105, 105, 0.3);
+}
+
+.itemTableHeadDrag,
+.itemTableHeadDelete,
+.itemTableRowDrag,
+.itemTableRowDelete {
+  width: 5%;
+}
+
+.itemTableHeadDesc,
+.itemTableRowName {
+  width: 45%;
+  text-align: left;
+}
+
+.itemTableHeadText,
+.itemTableRowText,
+.itemTableRowRate {
+  width: 15%;
+  text-align: right;
+}
+
+.taxRateRow {
+  color: #183185;
+}
+
+.taxRateRow:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.itemTableRowDesc {
+  width: 45%;
+}
+
+.itemTableRowText {
+  width: 15%;
+}
+
+.dragButton {
+  cursor: -webkit-grab;
+  color: rgba(105, 105, 105, 0.3);
+}
+
+.deleteButton {
+  cursor: pointer;
+  color: rgba(105, 105, 105, 0.5);
+}
+
+.invoiceTotalSectionLeft,
+.invoiceTotalSectionRight {
+  width: 50%;
+}
+
+.invoiceTotalRow {
+  display: flex;
+  width: 100%;
+}
+
+.invoiceTotalRowLeft {
+  width: 60%;
+  text-align: right;
+}
+
+.invoiceTotalRowRight {
+  width: 40%;
+  text-align: right;
+  margin-right: 5px;
+}
+
+.invoiceDataColumn {
+  margin-top: 30px;
+}
+
+.inputLabel {
+  color: #183185;
+}
+
+.placeholderText {
+  color: #696969;
+}
+
+.inputFooter {
+  width: 100%;
+  transition: width 0.1s;
+  padding: 2px;
+  background: none;
+  border: none;
+}
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0 8px 10px 1px rgba(0, 0, 0, 0.14),
+    0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.dragList.cdk-drop-list-dragging .dragElement:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.itemTableInput {
+  width: 25px;
+}
+
+.taxRatePopoverModal, div.itemTableRowRate .popover {
+  max-width: 500px !important;
+  width: 500px;
+  height: 400px;
+  overflow: scroll;
+  z-index: 11;
+  opacity: 1;
+}
